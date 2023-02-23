@@ -25,7 +25,7 @@ const App = () => {
   useEffect(() => {
       fetchTours()
   }, [])
-
+  
   if(isLoading){
    return (
     <Loading text={'Loading...'}/>
@@ -34,7 +34,7 @@ const App = () => {
  if(tours.length === 0){
   return <section>
           <h1>No Tours Left</h1>
-          <button>Refresh</button>
+          <button onClick={() => fetchTours()}>Refresh</button>
     </section>
  }
   return (

@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Tours = ({tour, removeBtn}) => {
+    const [readMore, setReadMore] = useState(true)
     return (
       <div>
           {tour.map((tours) => { 
@@ -12,7 +13,9 @@ const Tours = ({tour, removeBtn}) => {
                     <h4>{name}</h4>
                     <h4>${price}</h4>
                 </div>
-                <p>{info}</p>
+                <p>{readMore ? `${info.substring(0, 200)}...` : info}
+                <button onClick={() => setReadMore(!readMore)}>{readMore ? 'Read More' : 'Show Less'}</button>
+                </p>
                 <button onClick={() => removeBtn(id)}>Not Interested</button>
             </div>
               )
